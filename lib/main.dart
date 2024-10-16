@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:menu_flutter/screens/menu/menu_item.dart';
+import 'package:menu_flutter/screens/category/category.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -15,11 +15,11 @@ class SandBox extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("sandbox"),
-        backgroundColor: Colors.grey,
+        backgroundColor: const Color.fromARGB(255, 220, 154, 232),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 15),
-        child: MenuItem(),
+        child: Category(),
       ),
     );
   }

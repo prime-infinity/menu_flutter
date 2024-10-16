@@ -7,6 +7,10 @@ class Category extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+          border: Border.all(
+        color: Colors.black,
+      )),
       child: const Column(
         //this column is for the main categories
         //we do it this way so we can display the

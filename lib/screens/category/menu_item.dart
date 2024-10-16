@@ -7,6 +7,7 @@ class MenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       //now we are in a menu item
+      decoration: BoxDecoration(border: Border.all(color: Colors.red)),
       child: Column(
         //we create two colums for the up
         //and down
@@ -19,11 +20,16 @@ class MenuItem extends StatelessWidget {
             children: [
               Container(
                 //image container
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.yellow)),
                 child: Text("image"),
               ),
               Container(
                 //price, name and description container
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.green)),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   //this will have two columns, the first will be
                   //a rowfor name and price, and the second will be for
                   //description
@@ -38,7 +44,7 @@ class MenuItem extends StatelessWidget {
             ],
           ),
           Container(
-            color: Colors.amber,
+            decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
             child: Text("more item images"),
           )
         ],

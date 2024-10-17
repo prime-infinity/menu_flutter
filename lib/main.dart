@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:menu_flutter/models/category.dart';
 import 'package:menu_flutter/screens/category/category.dart';
 
 void main() {
@@ -18,8 +19,12 @@ class SandBox extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 220, 154, 232),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        child: Category(),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: ListView.builder(
+            itemCount: categories.length,
+            itemBuilder: (context, index) {
+              return CategoryCard(categories[index]);
+            }),
       ),
     );
   }

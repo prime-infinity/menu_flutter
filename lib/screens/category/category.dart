@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:menu_flutter/models/category.dart';
 import 'package:menu_flutter/screens/category/menu_item.dart';
 
-class Category extends StatelessWidget {
-  const Category({super.key});
+class CategoryCard extends StatelessWidget {
+  const CategoryCard(this.category, {super.key});
+
+  final Category category;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class Category extends StatelessWidget {
           SizedBox(
             height: 5,
           ),
-          MenuItem()
+          MenuItemCard()
         ],
       ),
     );

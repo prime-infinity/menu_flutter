@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:menu_flutter/models/menu_item.dart';
 
 class MenuItemCard extends StatelessWidget {
-  const MenuItemCard({super.key});
+  const MenuItemCard(this.menuItem, {super.key});
+
+  final MenuItem menuItem;
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +30,11 @@ class MenuItemCard extends StatelessWidget {
                 height: 80,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.yellow),
-                  /*image: const DecorationImage(
-                    image: AssetImage("assets/images/foods/food3.jpg"),
+                  image: DecorationImage(
+                    image: AssetImage(
+                        "assets/images/foods/${menuItem.images.first}"),
                     fit: BoxFit.cover,
-                  ),*/
+                  ),
                 ),
               ),
               const SizedBox(width: 8),
@@ -40,28 +44,32 @@ class MenuItemCard extends StatelessWidget {
                   //price, name and description container
                   decoration:
                       BoxDecoration(border: Border.all(color: Colors.green)),
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Column(
                     //this will have two columns, the first will be
                     //a rowfor name and price, and the second will be for
                     //description
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [Text("item name"), Text("item price")],
+                        children: [
+                          Text(menuItem.name),
+                          Text("\$${menuItem.price}"),
+                        ],
                       ),
-                      SizedBox(height: 4),
-                      Text("item description")
+                      //const SizedBox(height: 8),
+                      Text(menuItem.description)
                     ],
                   ),
                 ),
               )
             ],
           ),
-          Container(
+          /*Container(
             decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
             child: const Text("rest of item images in horizontal scroll"),
-          )
+          )*/
         ],
       ),
     );

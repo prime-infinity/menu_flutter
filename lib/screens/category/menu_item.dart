@@ -17,54 +17,57 @@ class MenuItemCard extends StatelessWidget {
         //and down, the down will contain
         //the item images as horizontal scroll in container
         children: [
-          Row(
-            //this row is where the item image
-            //name,price and description will be
-            //the name,price and description will be
-            // the second item on the row
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                //image container
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.yellow),
-                  image: DecorationImage(
-                    image: AssetImage(
-                        "assets/images/foods/${menuItem.images.first}"),
-                    fit: BoxFit.cover,
+          IntrinsicHeight(
+            child: Row(
+              //this row is where the item image
+              //name,price and description will be
+              //the name,price and description will be
+              // the second item on the row
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Container(
+                  //image container
+                  width: 128,
+                  height: 128,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.yellow),
+                    image: DecorationImage(
+                      image: AssetImage(
+                          "assets/images/foods/${menuItem.images.first}"),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Container(
-                  //remove this container later
-                  //price, name and description container
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.green)),
-                  child: Column(
-                    //this will have two columns, the first will be
-                    //a rowfor name and price, and the second will be for
-                    //description
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(menuItem.name),
-                          Text("\$${menuItem.price}"),
-                        ],
-                      ),
-                      //const SizedBox(height: 8),
-                      Text(menuItem.description)
-                    ],
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Container(
+                    //remove this container later
+                    //price, name and description container
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.green)),
+                    padding: const EdgeInsets.all(8),
+                    child: Column(
+                      //this will have two columns, the first will be
+                      //a rowfor name and price, and the second will be for
+                      //description
+                      crossAxisAlignment: CrossAxisAlignment.start,
+
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(menuItem.name),
+                            Text("\$${menuItem.price}"),
+                          ],
+                        ),
+                        const Spacer(),
+                        Text(menuItem.description),
+                      ],
+                    ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
           /*Container(
             decoration: BoxDecoration(border: Border.all(color: Colors.blue)),

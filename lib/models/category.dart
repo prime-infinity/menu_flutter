@@ -39,32 +39,64 @@ final List<Category> categories = [
           name: "Bruschetta",
           description: "Toasted bread with tomatoes, garlic, and basil",
           price: 7.99,
-          images: ["food1.jpg"]),
+          images: [
+            "food1.jpg",
+            "food3.jpg",
+            "food14.jpg",
+            'food6.jpg',
+            'food19.jpg'
+          ]),
       MenuItem(
           name: "Mozzarella Sticks",
           description: "Breaded and fried mozzarella",
           price: 6.99,
-          images: ["food2.jpg"]),
+          images: ["food2.jpg", "food4.jpg", 'food16.jpg', 'food12.jpg']),
       MenuItem(
           name: "Spinach Artichoke Dip",
           description: "Creamy dip with spinach and artichokes",
           price: 8.99,
-          images: ["food3.jpg"]),
+          images: [
+            "food3.jpg",
+            'food9.jpg',
+            'food12.jpg',
+            'food19.jpg',
+            'food18.jpg',
+            'food16.jpg'
+          ]),
       MenuItem(
           name: "Chicken Wings",
           description: "Crispy wings with your choice of sauce",
           price: 9.99,
-          images: ["food4.jpg"]),
+          images: [
+            "food4.jpg",
+            "food3.jpg",
+            'food10.jpg',
+            "food13.jpg",
+            "food7.jpg",
+            "food12.jpg",
+          ]),
       MenuItem(
           name: "Calamari",
           description: "Lightly breaded and fried squid rings",
           price: 10.99,
-          images: ["food5.jpg"]),
+          images: [
+            "food5.jpg",
+            'food11.jpg',
+            'food12.jpg',
+            'food13.jpg',
+            'food17.jpg'
+          ]),
       MenuItem(
           name: "Nachos",
           description: "Tortilla chips with cheese, jalapeños, and salsa",
           price: 8.99,
-          images: ["food6.jpg"]),
+          images: [
+            "food6.jpg",
+            'food7.jpg',
+            'food8.jpg',
+            'food9.jpg',
+            'food17.jpg'
+          ]),
     ],
   ),
   Category(
@@ -74,32 +106,59 @@ final List<Category> categories = [
           name: "Grilled Salmon",
           description: "Fresh salmon fillet with lemon butter sauce",
           price: 18.99,
-          images: ["food14.jpg"]),
+          images: [
+            "food14.jpg",
+            'food7.jpg',
+            'food8.jpg',
+            'food9.jpg',
+            'food17.jpg'
+          ]),
       MenuItem(
           name: "Steak Frites",
           description: "Sirloin steak with crispy fries",
           price: 22.99,
-          images: ["food7.jpg"]),
+          images: [
+            "food7.jpg",
+            "food3.jpg",
+            'food10.jpg',
+            "food13.jpg",
+          ]),
       MenuItem(
           name: "Chicken Parmesan",
           description: "Breaded chicken with marinara and mozzarella",
           price: 16.99,
-          images: ["food8.jpg"]),
+          images: ["food8.jpg", "food4.jpg", 'food16.jpg', 'food12.jpg']),
       MenuItem(
           name: "Vegetable Stir Fry",
           description: "Mixed vegetables in a savory sauce",
           price: 14.99,
-          images: ["food9.jpg"]),
+          images: [
+            "food9.jpg",
+            "food3.jpg",
+            "food14.jpg",
+            'food6.jpg',
+          ]),
       MenuItem(
           name: "Lobster Ravioli",
           description: "Pasta filled with lobster in a creamy sauce",
           price: 24.99,
-          images: ["food10.jpg"]),
+          images: [
+            "food10.jpg",
+            "food3.jpg",
+            'food10.jpg',
+            "food13.jpg",
+          ]),
       MenuItem(
           name: "BBQ Ribs",
           description: "Tender pork ribs with house BBQ sauce",
           price: 20.99,
-          images: ["food11.jpg"]),
+          images: [
+            "food11.jpg",
+            "food4.jpg",
+            'food16.jpg',
+            "food3.jpg",
+            'food10.jpg',
+          ]),
     ],
   ),
   Category(
@@ -109,17 +168,21 @@ final List<Category> categories = [
           name: "Caesar Salad",
           description: "Romaine lettuce with Caesar dressing and croutons",
           price: 9.99,
-          images: ["food12.jpg"]),
+          images: ["food12.jpg", "food4.jpg", 'food16.jpg']),
       MenuItem(
           name: "Greek Salad",
           description: "Mixed greens with feta, olives, and vinaigrette",
           price: 10.99,
-          images: ["food13.jpg"]),
+          images: [
+            "food13.jpg",
+            "food3.jpg",
+            'food10.jpg',
+          ]),
       MenuItem(
           name: "Cobb Salad",
           description: "Lettuce with chicken, bacon, eggs, and blue cheese",
           price: 12.99,
-          images: ["food14.jpg"]),
+          images: ["food14.jpg", "food4.jpg", 'food16.jpg', "food3.jpg"]),
       MenuItem(
           name: "Spinach Salad",
           description: "Baby spinach with strawberries and balsamic",
@@ -144,7 +207,7 @@ final List<Category> categories = [
           name: "Classic Club",
           description: "Turkey, bacon, lettuce, and tomato on toasted bread",
           price: 11.99,
-          images: ["food18.jpg"]),
+          images: ["food18.jpg", "food4.jpg", 'food16.jpg', "food3.jpg"]),
       MenuItem(
           name: "Philly Cheesesteak",
           description: "Sliced beef with melted cheese on a hoagie roll",
@@ -169,7 +232,7 @@ final List<Category> categories = [
           name: "Tuna Melt",
           description: "Tuna salad with melted cheddar on sourdough",
           price: 10.99,
-          images: ["food3.jpg"]),
+          images: ["food3.jpg", "food4.jpg", 'food16.jpg', "food3.jpg"]),
     ],
   ),
   Category(
@@ -274,7 +337,11 @@ final List<Category> categories = [
           name: "Red Wine",
           description: "House red wine by the glass",
           price: 7.99,
-          images: ["food1.jpg"]),
+          images: [
+            "food1.jpg",
+            "food3.jpg",
+            'food10.jpg',
+          ]),
     ],
   ),
 ];

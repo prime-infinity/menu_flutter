@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:menu_flutter/models/menu_item.dart';
 
-class MenuItemCard extends StatelessWidget {
+class MenuItemCard extends StatefulWidget {
   const MenuItemCard(this.menuItem, {super.key});
 
   final MenuItem menuItem;
+
+  @override
+  State<MenuItemCard> createState() => _MenuItemCardState();
+}
+
+class _MenuItemCardState extends State<MenuItemCard> {
+  int _currentImageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +40,7 @@ class MenuItemCard extends StatelessWidget {
                     border: Border.all(color: Colors.yellow),
                     image: DecorationImage(
                       image: AssetImage(
-                          "assets/images/foods/${menuItem.images.first}"),
+                          "assets/images/foods/${widget.menuItem.images.first}"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -56,12 +63,12 @@ class MenuItemCard extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(menuItem.name),
-                            Text("\$${menuItem.price}"),
+                            Text(widget.menuItem.name),
+                            Text("\$${widget.menuItem.price}"),
                           ],
                         ),
                         const Spacer(),
-                        Text(menuItem.description),
+                        Text(widget.menuItem.description),
                       ],
                     ),
                   ),
@@ -69,10 +76,60 @@ class MenuItemCard extends StatelessWidget {
               ],
             ),
           ),
-          /*Container(
-            decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
-            child: const Text("rest of item images in horizontal scroll"),
-          )*/
+          if (widget.menuItem.images.length > 1)
+            Column(children: [
+              //the container that has the images
+              Container(
+                height: 371,
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.blue)),
+                child: Stack(children: [
+                  PageView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: widget.menuItem.images.length - 1,
+                      onPageChanged: (index) {
+                        setState(() {
+                          _currentImageIndex = index;
+                        });
+                      },
+                      itemBuilder: (context, index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.green),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/images/foods/${widget.menuItem.images[index + 1]}'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        );
+                      }),
+                  Positioned(
+                    bottom: 8,
+                    left: 0,
+                    right: 0,
+                    child: //row of indicators
+                        Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        widget.menuItem.images.length - 1,
+                        (index) => Container(
+                          width: 8,
+                          height: 8,
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: _currentImageIndex == index
+                                ? Colors.black
+                                : Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+              ),
+            ]),
         ],
       ),
     );

@@ -10,9 +10,28 @@ class MenuItemCard extends StatefulWidget {
   State<MenuItemCard> createState() => _MenuItemCardState();
 }
 
-class _MenuItemCardState extends State<MenuItemCard> {
+class _MenuItemCardState extends State<MenuItemCard>
+    with SingleTickerProviderStateMixin {
   int _currentImageIndex = 0;
   bool isTapped = false;
+
+  //image animation
+  late AnimationController _widthAnimationController;
+  //tween width 0 -> 128
+  late Animation _widthAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _widthAnimationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 100));
+
+    _widthAnimation = Tween<double>(
+      begin: 128, // Starting width
+      end: 0, // Ending width
+    ).animate(_widthAnimationController);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +47,11 @@ class _MenuItemCardState extends State<MenuItemCard> {
           IntrinsicHeight(
             child: GestureDetector(
               onTap: () {
+                if (!isTapped) {
+                  _widthAnimationController.forward();
+                } else {
+                  _widthAnimationController.reverse();
+                }
                 setState(() {
                   isTapped = !isTapped;
                 });
@@ -39,26 +63,26 @@ class _MenuItemCardState extends State<MenuItemCard> {
                 // the second item on the row
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  AnimatedSize(
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeInOut,
-                    child: Container(
-                      //image container
-                      width: isTapped ? 0 : 128,
-                      height: 128,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        image: DecorationImage(
-                          image: AssetImage(
-                              "assets/images/foods/${widget.menuItem.images.first}"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
+                  AnimatedBuilder(
+                      animation: _widthAnimationController,
+                      builder: (context, child) {
+                        return Container(
+                          //image container
+                          width: _widthAnimation.value,
+                          height: 128,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  "assets/images/foods/${widget.menuItem.images.first}"),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        );
+                      }),
                   // Use AnimatedContainer for spacing between widgets
                   AnimatedContainer(
-                    duration: const Duration(milliseconds: 400),
+                    duration: const Duration(milliseconds: 100),
                     width: isTapped ? 0 : 8,
                   ),
                   Expanded(
@@ -96,7 +120,7 @@ class _MenuItemCardState extends State<MenuItemCard> {
             Column(children: [
               //the container that has the images
               AnimatedContainer(
-                duration: const Duration(milliseconds: 400),
+                duration: const Duration(milliseconds: 100),
                 height: isTapped ? 371 : 0,
                 decoration:
                     BoxDecoration(border: Border.all(color: Colors.black)),
@@ -150,5 +174,11 @@ class _MenuItemCardState extends State<MenuItemCard> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _widthAnimationController.dispose();
+    super.dispose();
   }
 }
